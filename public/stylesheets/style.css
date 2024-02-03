@@ -1,4 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap");
+
+:root{
+  --font-color1: #1ab5f2;
+  --font-color2: rgb(49, 134, 187);
+  --header-background-color: rgb(25, 40, 69);
+  --header-border-color: #97b5ce;
+  --info-container-background-color: rgb(48, 131, 182);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -17,7 +26,7 @@ main{
 
 a {
   cursor: pointer;
-  color: #1ab5f2;
+  color: var(--font-color1);
   text-decoration: none;
 }
 
@@ -36,8 +45,8 @@ nav {
   display: flex;
   align-items: center;
   position: relative;
-  background-color: rgb(25, 40, 69);
-  border-bottom: 7px solid #97b5ce;
+  background-color: var(--header-background-color);
+  border-bottom: 7px solid var(--header-border-color);
   padding: 20px 30px;
   color: white;
   font-size: 20px;
@@ -67,8 +76,6 @@ nav ul {
   right: 15px;
 }
 
-
-
 /**********************************
 * * Navbar Icons* *
 **********************************/
@@ -93,8 +100,24 @@ nav ul {
 
 .home-info-container {
   padding: 5px 20px;
-  background-color: rgb(48, 131, 182);
+  background-color: var(--info-container-background-color);
   border-radius: 10px;
   color: white;
 }
 
+/**********************************
+* * Items Page * *
+**********************************/
+.header-container{
+  display: flex;
+  align-items: center;
+  font-family: "Pixelify Sans", sans-serif;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--font-color2);
+}
+
+.add-icon{
+  width: 40px;
+  height: 40px;
+}
