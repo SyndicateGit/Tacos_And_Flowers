@@ -11,6 +11,10 @@ body {
   height: 100vh;
 }
 
+main{
+  padding: 0 50px;
+}
+
 a {
   cursor: pointer;
   color: #1ab5f2;
