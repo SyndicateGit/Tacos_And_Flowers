@@ -1,8 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap");
+* {
+  box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 
 a {
-  color: #00B7FF;
+  cursor: pointer;
+  color: #1ab5f2;
+  text-decoration: none;
 }
+
+a:hover {
+  text-decoration: underline;
+}
+
+/**********************************
+* * Github Icon* *
+**********************************/
+#github-icon{
+  width: 50px;
+  height: 50px;
+}
+/**********************************
+* * NAVBAR * *
+**********************************/
+
+nav {
+  font-family: "Pixelify Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: rgb(25, 40, 69);
+  border-bottom: 7px solid #97b5ce;
+  padding: 20px 30px;
+  color: white;
+  font-size: 20px;
+}
+
+nav a {
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.github-link {
+  position: absolute;
+  margin: 0;
+  right: 15px;
+}
+
+/**********************************
+* * HOME PAGE * *
+**********************************/
