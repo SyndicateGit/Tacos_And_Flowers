@@ -10,6 +10,11 @@
      <div class="item-list-container">
       <% items.forEach(item => { %>
         <div class="item-container">
+          <% if(item.profile_img) { %>
+            <img class="item-image" src="<%= item.profile_img %>" alt="Item Image">
+         <% } else { %>
+            <img class="item-image" src="/images/Image.png" alt="Item Image">
+         <%  } %>
            <div class="info-container">
               <h2 class="item-name"><a href=<%= item.url %>><%= item.name %></a></h2>
               <p class="item-category"><a href=<%= item.category.url %>><%= item.category.name %></a></p>

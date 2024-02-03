@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const itemSchema = new Schema({
   name: {type: String, required: true, minLength: 2},
   category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
-  // cloudinary_id: {type: String},
+  profile_img: {type: String},
+  cloudinary_id: {type: String},
   price: {type: Number, required: true},
   description: {type: String, required: true, maxLength: 300},
 });
