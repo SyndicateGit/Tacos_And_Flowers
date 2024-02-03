@@ -14,7 +14,7 @@ Link: (to be added after hosting)
 
 ## Technologies Used
 -Backend: Node.js, Express.js
--View Engine: Pug
+-View Engine: Ejs
 -Database: MongoDB
 -Image Hosting: (considering Cloudinary)
 
