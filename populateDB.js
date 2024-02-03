@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-console.log('This script populates some test items and category to your database. Specified database as argument - e.g.: node populatedb "mongodb+srv://shileizeng98:zZ28889112m@syndicatecluster0.ycws9yh.mongodb.net/?retryWrites=true&w=majority"');
+console.log('This script populates some test items and category to your database. Specified database as argument - e.g.: node populatedb "mongodb+srv://cooluser:coolpassword@cluster0.lz91hw2.mongodb.net/inventory_application?retryWrites=true&w=majority"');
 
 // Get arguments passed on command line
 const userArgs = process.argv.slice(2);
@@ -19,8 +19,7 @@ main().catch((err) => console.log(err));
 
 async function main() {
 	console.log("Debug: About to connect");
-	await mongoose.connect("mongodb+srv://shileizeng98:zZ28889112m@syndicatecluster0.ycws9yh.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true,
-  dbName: "tacos_and_flowers"});
+	await mongoose.connect(mongoDB);
 	console.log("Debug: Should be connected?");
 	await createCategories();
 	await createItems();

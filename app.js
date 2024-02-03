@@ -9,11 +9,12 @@ var usersRouter = require('./routes/users');
 const inventoryRouter = require("./routes/inventory");
 
 // Connect to database
+require("dotenv").config();
 
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
-const uri = "mongodb+srv://shileizeng98:zZ28889112m@syndicatecluster0.ycws9yh.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.MONGOSH_URI;
 
 async function connect(){
   try{
