@@ -9,4 +9,6 @@ const checkoutController = require("../controllers/checkoutController");
 /// ITEM ROUTES ///
 
 // GET inventory page.
-router.get("/inventory/items", itemController.item_list);
+router.get("/items", itemController.item_list);
+
+module.exports = router;

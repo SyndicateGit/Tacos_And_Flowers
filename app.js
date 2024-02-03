@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const inventoryRouter = require("./routes/inventory");
 
 // Connect to database
 
@@ -40,6 +41,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/inventory', inventoryRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
