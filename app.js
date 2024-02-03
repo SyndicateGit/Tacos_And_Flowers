@@ -7,6 +7,26 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+// Connect to database
+
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
+
+const uri = "mongodb+srv://shileizeng98:zZ28889112m@syndicatecluster0.ycws9yh.mongodb.net/?retryWrites=true&w=majority";
+
+async function connect(){
+  try{
+    await mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true,
+    dbName: "tacos_and_flowers"});
+    console.log("Connected to the database");
+
+  } catch(err){
+    console.error(err);
+  }
+}
+
+connect();
+
 var app = express();
 
 // view engine setup
