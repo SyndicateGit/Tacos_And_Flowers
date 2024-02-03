@@ -1,5 +1,4 @@
 const Item = require("../models/item");
-const Category = require("../models/category");
 
 const asyncHandler = require("express-async-handler");
 

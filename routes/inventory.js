@@ -8,7 +8,10 @@ const checkoutController = require("../controllers/checkoutController");
 
 /// ITEM ROUTES ///
 
-// GET inventory page.
+// GET items page.
 router.get("/items", itemController.item_list);
+
+// GET categories page.
+router.get("/categories", categoryController.category_list);
 
 module.exports = router;
