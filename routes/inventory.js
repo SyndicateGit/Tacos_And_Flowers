@@ -14,4 +14,8 @@ router.get("/items", itemController.item_list);
 // GET categories page.
 router.get("/categories", categoryController.category_list);
 
+
+// GET checkout page.
+router.get("/checkout", checkoutController.checkout);
+
 module.exports = router;
