@@ -1,0 +1,19 @@
+<html>
+  <%- include('templates/head') %>
+  <body>
+    <%- include('templates/navbar') %>
+    <main>
+      <h1 class="app-title"><%= title %></h1>
+			<form method="POST" action="">
+        <div class="form-group">
+          <label for="name">Category Name *</label>
+          <input type="text" name="name" id="name" placeholder="Awesome Category" value="<%= (typeof category === 'undefined' ? '' : category.name) %>" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description * </label>
+          <textarea name="description" id="description" rows="4" cols="50" minlength="10" maxlength="300" placeholder="Description of awesome category." required><%= (typeof category === "undefined" ? '' : category.description) %></textarea>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </main>
+  </body>
+</html>
