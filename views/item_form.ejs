@@ -1,0 +1,50 @@
+<html>
+  <%- include('templates/head') %>
+  <body>
+    <%- include('templates/navbar') %>
+    <main>
+      <h1 class="app-title"><%= title %></h1>
+			<form method="POST" action="" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="name">Item Name *</label>
+          <input type="text" name="name" id="name" placeholder="Awesome Item" value="<%= (typeof item === 'undefined' ? '' : item.name) %>" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description * </label>
+          <textarea name="description" id="description" rows="4" cols="50" minlength="10" maxlength="300"
+          placeholder="Description of awesome item." required>
+          <%= (typeof item === "undefined" ? '' : item.description) %>
+          </textarea>
+       </div>
+        <div class = "form-group">
+          <label for="category">Category *</label>
+          <select name="category" id="category" required>
+            <option value="" selected disabled hidden>-- Select an Option --</option>
+            <% categories.forEach(category => { %>
+               <option value="<%= category._id %>" <% if (typeof item !== "undefined" && typeof item.category !== "undefined" && item.category.toString() === category._id.toString()) { %>selected<% } %> >
+                  <%= category.name %>
+               </option>
+            <% }) %>
+         </select>
+        </div>
+        <div class="form-group">
+          <label for="uploaded_file">Upload Image</label>
+          <input type="file" name="uploaded_file" id="uploaded_file" accept="image/*">
+       </div>
+        <div class="form-group">
+          <label for="price">Price *</label>
+          <input type="number" name="price" id="price" placeholder="4.20" value="<%= (typeof item === 'undefined' ? '' : item.price) %>" required>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+      <% if (typeof errors !== "undefined" && errors.length > 0) { %>
+        <p>An Error Has Occured: </p>
+        <ul>
+           <% errors.forEach(error => { %>
+              <li class="error-msg"><%= error.msg %>!</li>
+           <% }) %>
+        </ul>
+     <% } %>
+    </main>
+  </body>
+</html>
