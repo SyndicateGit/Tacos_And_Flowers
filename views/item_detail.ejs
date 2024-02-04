@@ -1,0 +1,26 @@
+<html lang="en">
+<%- include('templates/head') %>
+<body>
+   <%- include('templates/navbar') %>
+   <main class="item-detail-container">
+      <div class="item-img-container">
+         <% if(item.profile_img) { %>
+            <img class="item-image detail" src="<%= item.profile_img %>" alt="Item Image">
+         <% } else { %>
+            <img class="item-image detail" src="/images/Image.png" alt="Item Image">
+         <%  } %>
+      </div>
+      <div class="info-container">
+         <div class="header-container">
+            <h1 class="name"><%= item.name %></h1>
+            <a href="<%= item.url %>/update"><img class="edit-icon" src="/images/edit-icon.png" alt="edit-icon"></a>
+            <a href="<%= item.url %>/delete"><img class="delete-icon" src="/images/delete-icon.svg" alt="delete-icon"></a>
+         </div>
+         <hr>
+         <p class="description">Description: <%= item.description %></p>
+         <p><a href=<%= item.category.url %>>Category: <%= item.category.name %></a></p>
+         <p>Price: $<%= item.price %></p>
+      </div>
+   </main>
+</body>
+</html>

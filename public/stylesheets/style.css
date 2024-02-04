@@ -202,6 +202,32 @@ form button{
 }
 
 /**********************************
+* * Item Detail Page * *
+**********************************/
+
+.item-detail-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  gap: 20px;
+}
+
+.item-detail-container .info-container{
+  width: 80%;
+}
+
+.item-img-container{
+  width: 30vw;
+  height: auto;
+}
+
+.item-image.detail{
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/**********************************
 * * Categories List * *
 **********************************/
 .category-list{
