@@ -202,7 +202,7 @@ form button{
 }
 
 /**********************************
-* * Categories * *
+* * Categories List * *
 **********************************/
 .category-list{
   font-family: "Courier New", monospace;
@@ -242,4 +242,20 @@ form button{
   background-repeat: no-repeat;
 }
 
+/**********************************
+* * Categories Details * *
+**********************************/
+.category-detail-container{
 
+}
+
+hr{
+  margin: 20px 0;
+  border: 1px solid var(--font-color2);
+}
+
+.edit-icon, 
+.delete-icon{
+  width: 40px;
+  height: 40px;
+}

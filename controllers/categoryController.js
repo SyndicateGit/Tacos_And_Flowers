@@ -1,5 +1,7 @@
 const Category = require("../models/category");
 
+const Item = require("../models/item");
+
 const asyncHandler = require("express-async-handler");
 
 const { body, validationResult } = require("express-validator");
@@ -13,7 +15,25 @@ exports.category_list = asyncHandler(async (req, res, next) => {
 	});
 });
 
-//TODO: Implement the category_create_get controller method
+//TODO: Implement the category_detail controller method
+//Display detail page for a items from a specific category.
+exports.category_detail = asyncHandler(async (req, res, next) => {
+	const category = await Category.findById(req.params.id).exec();
+
+	const allItemsOfCategory = await Item.find({ category: req.params.id }).exec();
+
+	if (category == null) {
+		const err = new Error("Category not found");
+		err.status = 404;
+		return next(err);
+	}
+	res.render("category_detail", {
+		title: "Category Detail",
+		category: category,
+		category_items: allItemsOfCategory,
+	});
+});
+
 // Display Category create form on GET.
 exports.category_create_get = asyncHandler(async (req, res, next) => {
 	res.render("category_form", {
@@ -21,3 +41,4 @@ exports.category_create_get = asyncHandler(async (req, res, next) => {
 	});
 });
 
+//TODO: Implement the category_create_post controller method

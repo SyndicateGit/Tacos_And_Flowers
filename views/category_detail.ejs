@@ -1,0 +1,46 @@
+<html>
+  <%- include('templates/head') %>
+  <body>
+    <%- include('templates/navbar') %>
+    <main>
+			<% if (typeof category !== 'undefined') { %>
+        <div class="category-detail-container">
+          <div class="header-container">
+            <h1 class="app-title"><%= category.name %></h1>
+            <a href="<%= category.url %>/update"><img class="edit-icon" src="/images/edit-icon.png" alt="edit-icon"></a>
+            <a href="<%= category.url %>/delete"><img class="delete-icon" src="/images/delete-icon.svg" alt="delete-icon"></a>
+          </div>
+          <p><%= category.description %></p>
+        </div>
+        <hr>
+      <% } else { %>
+          <div class="status-container">
+            <h2>Category Not Found!</h2>
+            <p>It seems that the category you are looking for does not exist.</p>
+          </div>
+      <% } %>
+      <% if (typeof category_items !== 'undefined') { %>
+        <div class="item-list-container">
+          <% category_items.forEach(item => { %>
+            <div class="item-container">
+              <% if(item.profile_img) { %>
+                <img class="item-image" src="<%= item.profile_img %>" alt="Item Image">
+            <% } else { %>
+                <img class="item-image" src="/images/Image.png" alt="Item Image">
+            <%  } %>
+              <div class="info-container">
+                  <h2 class="item-name"><a href=<%= item.url %>><%= item.name %></a></h2>
+                  <p class="item-price">$<%= item.price %></p>
+              </div>
+            </div>
+        <% }); %>
+        </div>
+      <% } else { %>
+        <div class="status-container">
+          <h2>No Items Found!</h2>
+          <p>It seems that there are no items in this category.</p>
+        </div>
+      <% } %>
+    </main>
+  </body>
+</html>

@@ -17,7 +17,7 @@ router.get("/items/create", itemController.item_create_get);
 // GET categories page.
 router.get("/categories", categoryController.category_list);
 router.get("/categories/create", categoryController.category_create_get);
-
+router.get("/categories/:id", categoryController.category_detail);
 
 // GET checkout page.
 router.get("/checkout", checkoutController.checkout);
