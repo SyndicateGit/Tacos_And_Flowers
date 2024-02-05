@@ -7,6 +7,7 @@
   --header-border-color: #97b5ce;
   --info-container-background-color: rgb(48, 131, 182);
   --button-delete-color: #ff6961;
+  --warning-color: #ff6961;
 }
 
 * {
@@ -26,7 +27,7 @@ main{
 }
 
 /**********************************
-* * Global Button and Links * *
+* * Global Styles* *
 **********************************/
 .btn {
   background-color: #00BFA6;
@@ -93,6 +94,10 @@ form a{
   text-align: center;
 }
 
+.red{
+  color: var(--warning-color);
+  font-weight: bold;
+}
 
 
 /**********************************
@@ -318,12 +323,6 @@ hr{
 /**********************************
 * * Categories Delete * *
 **********************************/
-
-.category-delete-get{
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
 
 form.flex-two-buttons{
   display: flex;

@@ -2,15 +2,27 @@
   <%- include('templates/head') %>
   <body>
     <%- include('templates/navbar') %>
-    <main class="category-delete-get">
+    <main>
       <h1 class="app-title"><%= title %></h1>
       <h2>Category: <%= category.name %></h2>
       <p><%= category.description %></p>
+
+      <% if(category_items.length > 0) { %>
+        <p class="red">This category still contains items!</p>
+        <p>Please delete all items of this categoy first.</p>
+
+        <ul class="item-list">
+          <% category_items.forEach(item => { %>
+            <li><a href="<%= item.url %>"><%= item.name %></a></li>
+          <% }); %>
+        </ul>
+      <% } else { %>
       <p>Are you sure you want to delete this category?</p>
       <form class="flex-two-buttons" method="POST" action="">
         <button type="submit" class="btn red">Delete</button>
         <a href="/inventory/categories" class="btn">Cancel</a>
       </form>
+      <% } %>
     </main>
   </body>
 </html>
