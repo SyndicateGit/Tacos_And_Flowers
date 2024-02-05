@@ -24,7 +24,21 @@ Link: (to be added after hosting)
 -Cloudinary: (considering for hosting and managing images)
 
 ## Installation Guide
--(To fill later)
+Type in terminal the following:
+
+-npm install
+
+-npm install dotenv --save
+
+-npm install mongoose
+
+-npm install express-async-handler
+
+-npm install express-validator
+
+-npm install cloudinary
+
+-npm run start
 
 ## What I've learned through this project
 -EJS (I used pugs before)
