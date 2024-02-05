@@ -40,6 +40,19 @@ main{
   transition: .4s;
  }
  
+ .btn.red{
+  background-color: #ff6961;
+  padding: 14px 40px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px dashed #ff6961;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .4s;
+ }
+
  .btn span:last-child {
   display: none;
  }
@@ -51,6 +64,13 @@ main{
   color: #00BFA6;
  }
  
+ .btn.red:hover {
+  transition: .4s;
+  border: 2px dashed #ff6961;
+  background-color: #fff;
+  color: #ff6961;
+ }
+
  .btn:active {
   background-color: #87dbd0;
  }
@@ -64,6 +84,14 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+form a{
+  margin-top: 20px;
+  width: 50vw;
+  align-self: center;
+  text-align: center;
+}
+
 
 
 /**********************************
@@ -285,3 +313,19 @@ hr{
   width: 40px;
   height: 40px;
 }
+
+/**********************************
+* * Categories Delete * *
+**********************************/
+
+.category-delete-get{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+form.flex-two-buttons{
+  display: flex;
+  flex-direction: row;
+}
+

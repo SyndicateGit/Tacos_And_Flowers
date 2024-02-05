@@ -41,7 +41,6 @@ exports.category_create_get = asyncHandler(async (req, res, next) => {
 	});
 });
 
-//TODO: Implement the category_create_post controller method
 //Handle Category create on POST.
 exports.category_create_post = [
 	body("name", "Category name of min 3 characters required")
@@ -80,3 +79,38 @@ exports.category_create_post = [
 	}),
 ];
 
+//TODO: Implement the category_delete controller method
+// Handler for category delete on GET.
+
+exports.category_delete_get = asyncHandler(async (req, res, next) => {
+	const [category, allItemsOfCategory] = await Promise.all([Category.findById(req.params.id), Item.find({ category: req.params.id })]);
+
+	if(category == null) {
+		// No results.
+		res.redirect("/inventory/categories");
+		return;
+	} else {
+		res.render("category_delete", {
+			title: "Delete Category",
+			category: category,
+			category_items: allItemsOfCategory,
+		});
+	}
+});
+
+// Handler for category delete on POST.
+exports.category_delete_post = asyncHandler(async (req, res, next) => {
+	const [category, allItemsOfCategory] = await Promise.all([Category.findById(req.params.id), Item.find({ category: req.params.id })]);
+
+	if (allItemsOfCategory.length > 0) {
+		res.render("category_delete", {
+			title: "Delete Category",
+			category: category,
+			category_items: allItemsOfCategory,
+		});
+		return;
+	} else {
+		await Category.findByIdAndDelete(req.params.id);
+		res.redirect("/inventory/categories");
+	}
+});

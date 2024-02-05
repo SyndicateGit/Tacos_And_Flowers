@@ -1,0 +1,16 @@
+<html>
+  <%- include('templates/head') %>
+  <body>
+    <%- include('templates/navbar') %>
+    <main class="category-delete-get">
+      <h1 class="app-title"><%= title %></h1>
+      <h2>Category: <%= category.name %></h2>
+      <p><%= category.description %></p>
+      <p>Are you sure you want to delete this category?</p>
+      <form class="flex-two-buttons" method="POST" action="">
+        <button type="submit" class="btn red">Delete</button>
+        <a href="/inventory/categories" class="btn">Cancel</a>
+      </form>
+    </main>
+  </body>
+</html>
