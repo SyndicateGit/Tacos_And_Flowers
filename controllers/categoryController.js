@@ -42,3 +42,41 @@ exports.category_create_get = asyncHandler(async (req, res, next) => {
 });
 
 //TODO: Implement the category_create_post controller method
+//Handle Category create on POST.
+exports.category_create_post = [
+	body("name", "Category name of min 3 characters required")
+		.trim()
+		.isLength({ min: 3 })
+		.escape(),
+	body("description", "Category description of min 3 characters required")
+		.trim()
+		.isLength({ min: 3 })
+		.escape(),
+
+	asyncHandler (async(req, res, next) => {
+
+		const errors = validationResult(req);
+
+		const category = new Category({ name: req.body.name, description: req.body.description});
+
+		if (!errors.isEmpty()) {
+			res.render("category_form", {
+				title: "Create Category",
+				category: category,
+				errors: errors.array(),
+			});
+			return;
+		} else {
+			const categoryExists = await Category.findOne({ name: req.body.name }).exec();
+
+			if (categoryExists) {
+				res.redirect(categoryExists.url);
+			} else {
+				await category.save();
+					
+				res.redirect(category.url);
+			};
+		}
+	}),
+];
+
