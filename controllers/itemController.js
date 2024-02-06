@@ -37,16 +37,35 @@ exports.item_detail = asyncHandler(async (req, res, next) => {
 
 // Handle Item create on POST.
 exports.item_create_post = [
-  body("name", "Item name is required").trim().notEmpty().escape(),
-  body("category", "Category must not be empty.").trim().notEmpty().escape(),
-  body("price", "Price must not be empty.").trim().notEmpty().escape(),
-  body("description", "Description must not be empty.").trim().notEmpty().escape(),
+  body("name", "Item name of min 3 characters required")
+  .trim()
+  .isLength({ min: 3 })
+  .escape(),
+  body("description", "Item description of min 3 characters required")
+  .trim()
+  .isLength({ min: 3 })
+  .escape(),
+  body("price", "Price is required")
+  .trim()
+  .isNumeric()
+  .escape(),
+  body("category", "Category is required")
+  .trim()
+  .isLength({ min: 1 })
+  .escape(),
   
   asyncHandler(async (req, res, next) => {
-    const errors = validationResult(req);
-    
-    let item;
+    try{
+      const errors = validationResult(req);
+    console.log(errors);
 
+    let formattedPrice = parseFloat(req.body.price).toFixed(2);
+
+    console.log(formattedPrice);
+
+    let item;
+    
+    console.log(req.body);
     // Image file is uploaded
     if(req.file){
       const result = await cloudinary.uploader.upload(req.file.path);
@@ -56,9 +75,10 @@ exports.item_create_post = [
         category: req.body.category,
         profile_img: result.secure_url,
         cloudinary_id: result.public_id,
-        price: req.body.price,
+        price: formattedPrice,
         description: req.body.description,
       });
+      console.log(item);
     } 
 
     // Image file is not uploaded
@@ -66,9 +86,10 @@ exports.item_create_post = [
       item = new Item({
         name: req.body.name,
         category: req.body.category,
-        price: req.body.price,
+        price: formattedPrice,
         description: req.body.description,
       });
+      console.log(item);
     }
 
     // If there are errors, render the form again, passing the previously entered values and errors
@@ -85,7 +106,9 @@ exports.item_create_post = [
       await item.save();
       res.redirect(item.url);
     }
-  })
+  } catch (err) {
+    }
+  }),
 ]
 
 // Handle Item delete on GET.

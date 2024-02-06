@@ -7,7 +7,7 @@ const itemSchema = new Schema({
   category: { type: Schema.Types.ObjectId, ref: "Category", required: true },
   profile_img: {type: String},
   cloudinary_id: {type: String},
-  price: {type: Number, required: true},
+  price: {type: Schema.Types.Decimal128, required: true},
   description: {type: String, required: true, maxLength: 300},
 });
 

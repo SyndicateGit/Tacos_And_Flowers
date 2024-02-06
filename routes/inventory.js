@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const upload = require("../middlewares/multer");
 
 // Require controller modules.
 const itemController = require("../controllers/itemController");
@@ -10,15 +11,13 @@ const cloudinary = require("../configs/cloudinaryConfig");
 
 /// ITEM ROUTES ///
 
-// GET items page.
 router.get("/items", itemController.item_list);
+router.post("/items/create", upload.single("uploaded_file"), itemController.item_create_post);
 router.get("/items/create", itemController.item_create_get);
 router.get("/items/:id", itemController.item_detail);
 router.get("/items/:id/delete", itemController.item_delete_get);
-
-// POST items page.
 router.post("/items/:id/delete", itemController.item_delete_post);
-router.post("/items/create", itemController.item_create_post);
+
 
 // GET categories page.
 router.get("/categories", categoryController.category_list);

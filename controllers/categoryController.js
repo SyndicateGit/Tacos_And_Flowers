@@ -15,7 +15,7 @@ exports.category_list = asyncHandler(async (req, res, next) => {
 	});
 });
 
-//TODO: Implement the category_detail controller method
+
 //Display detail page for a items from a specific category.
 exports.category_detail = asyncHandler(async (req, res, next) => {
 	const category = await Category.findById(req.params.id).exec();
@@ -79,7 +79,7 @@ exports.category_create_post = [
 	}),
 ];
 
-//TODO: Implement the category_delete controller method
+
 // Handler for category delete on GET.
 
 exports.category_delete_get = asyncHandler(async (req, res, next) => {

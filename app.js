@@ -11,6 +11,7 @@ const inventoryRouter = require("./routes/inventory");
 // Connect to database
 require("dotenv").config();
 
+
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
@@ -39,7 +40,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use('/', indexRouter);
 app.use('/inventory', inventoryRouter);
