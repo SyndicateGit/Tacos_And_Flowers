@@ -126,14 +126,11 @@ exports.item_delete_get = asyncHandler(async (req, res, next) => {
 });
 
 exports.item_delete_post = asyncHandler(async (req, res, next) => {
-  const Item = await Item.findById(req.params.id).exec();
+  const currItem = await Item.findByIdAndDelete(req.params.id).exec();
 
-  if (Item == null) {
-    const err = new Error("Item not found");
-    err.status = 404;
-    return next(err);
-  } else {
-    await Item.findByIdAndDelete(req.params.id);
-    res.redirect("/inventory/items");
+  if (currItem && currItem.cloudinary_id) {
+    await cloudinary.uploader.destroy(currItem.cloudinary_id);
   }
+  
+  res.redirect("/inventory/items");
 });
