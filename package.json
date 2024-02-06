@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     
-    "buildCommand": "echo 'skipping build with vercel.json'"
+    "vercel-build": "echo 'skipping build with vercel.json'"
     
   },
   "dependencies": {
