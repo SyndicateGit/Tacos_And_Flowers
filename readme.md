@@ -38,6 +38,8 @@ Type in terminal the following:
 
 -npm install cloudinary
 
+-npm install mutler
+
 -npm run start
 
 ## What I've learned through this project
@@ -48,5 +50,6 @@ Type in terminal the following:
 -Express routers and controller MCV architecture
 -Cloudinary
 -From enctype="multipart/form-data" for file uploads
+-Mutler is needed as middleware to parse forms that have file uploads
 
 ```bash
