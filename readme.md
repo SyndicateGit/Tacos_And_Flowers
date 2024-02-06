@@ -51,5 +51,6 @@ Type in terminal the following:
 -Cloudinary
 -From enctype="multipart/form-data" for file uploads
 -Mutler is needed as middleware to parse forms that have file uploads
+-Remember to put /:id app.use() after /create
 
 ```bash
