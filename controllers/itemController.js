@@ -40,7 +40,7 @@ exports.item_create_post = asyncHandler(async (req, res, next) => {
   res.render("Not Implemented: Item Create Post");
 });
 
-//TODO add item_delete_get controller
+// Handle Item delete on GET.
 exports.item_delete_get = asyncHandler(async (req, res, next) => {
   const item = await Item.findById(req.params.id).populate("category").exec();
   if (item == null) {
@@ -54,7 +54,15 @@ exports.item_delete_get = asyncHandler(async (req, res, next) => {
   });
 });
 
-//TODO add item_delete_post controller
 exports.item_delete_post = asyncHandler(async (req, res, next) => {
-  res.render("Not Implemented: Item Delete Post");
+  const Item = await Item.findById(req.params.id).exec();
+
+  if (Item == null) {
+    const err = new Error("Item not found");
+    err.status = 404;
+    return next(err);
+  } else {
+    await Item.findByIdAndDelete(req.params.id);
+    res.redirect("/inventory/items");
+  }
 });

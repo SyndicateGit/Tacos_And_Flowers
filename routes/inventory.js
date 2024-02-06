@@ -17,7 +17,7 @@ router.get("/items/:id", itemController.item_detail);
 router.get("/items/:id/delete", itemController.item_delete_get);
 
 // POST items page.
-router.post("/items/:id/delete", itemController.item_delete_get);
+router.post("/items/:id/delete", itemController.item_delete_post);
 
 
 // GET categories page.
