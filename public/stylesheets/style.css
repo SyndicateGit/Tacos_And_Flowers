@@ -339,3 +339,18 @@ form.flex-two-buttons{
   flex-direction: row;
 }
 
+/**********************************
+* * Checkout Page * *
+**********************************/
+
+.rick{
+
+  margin-top: 10px;
+}
+
+.checkout-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
