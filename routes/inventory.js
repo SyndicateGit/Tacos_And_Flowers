@@ -9,8 +9,10 @@ const checkoutController = require("../controllers/checkoutController");
 
 const cloudinary = require("../configs/cloudinaryConfig");
 
-/// ITEM ROUTES ///
+// GET home page.
+router.get("/", categoryController.index);
 
+/// ITEM ROUTES ///
 
 // GET Item pages.
 router.get("/items", itemController.item_list);

@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const Category = require("../models/category");
+const Item = require("../models/item");
+const asyncHandler = require("express-async-handler");
+
+const express = require('express');
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Tacos and Flowers' });
+  res.redirect("/inventory");
 });
 
 module.exports = router;

@@ -7,6 +7,15 @@ const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
 
+// Get details of current number of categories and items
+exports.index = asyncHandler(async (req, res, next) => {
+	const [allCategories, allItems] = await Promise.all([Category.find({}).exec(), Item.find({}).exec()]);
+	res.render("index", {
+		title: "Tacos and Flowers",
+		categories: allCategories,
+		items: allItems,
+	});
+});
 
 // Display Categories page on GET.
 exports.category_list = asyncHandler(async (req, res, next) => {
