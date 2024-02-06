@@ -41,6 +41,14 @@
           <p>It seems that there are no items in this category.</p>
         </div>
       <% } %>
+      <% if (typeof errors !== "undefined" && errors.length > 0) { %>
+        <p>An Error Has Occured: </p>
+        <ul>
+           <% errors.forEach(error => { %>
+              <li class="error-msg"><%= error.msg %>!</li>
+           <% }) %>
+        </ul>
+     <% } %>
     </main>
   </body>
 </html>
