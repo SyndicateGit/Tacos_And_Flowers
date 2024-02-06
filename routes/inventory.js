@@ -18,7 +18,7 @@ router.get("/items/:id/delete", itemController.item_delete_get);
 
 // POST items page.
 router.post("/items/:id/delete", itemController.item_delete_post);
-
+router.post("/items/create", itemController.item_create_post);
 
 // GET categories page.
 router.get("/categories", categoryController.category_list);
