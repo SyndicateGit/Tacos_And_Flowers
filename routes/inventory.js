@@ -14,6 +14,11 @@ const cloudinary = require("../configs/cloudinaryConfig");
 router.get("/items", itemController.item_list);
 router.get("/items/create", itemController.item_create_get);
 router.get("/items/:id", itemController.item_detail);
+router.get("/items/:id/delete", itemController.item_delete_get);
+
+// POST items page.
+router.post("/items/:id/delete", itemController.item_delete_get);
+
 
 // GET categories page.
 router.get("/categories", categoryController.category_list);

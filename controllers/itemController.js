@@ -21,7 +21,7 @@ exports.item_create_get = asyncHandler(async (req, res, next) => {
   });
 });
 
-//TODO add item_detail controller
+// Handle Item create on POST.
 exports.item_detail = asyncHandler(async (req, res, next) => {
   const item = await Item.findById(req.params.id).populate("category").exec();
   if (item == null) {
@@ -35,14 +35,23 @@ exports.item_detail = asyncHandler(async (req, res, next) => {
   });
 });
 
-//TODO add item_create_post controller
+// Handle Item create on POST.
 exports.item_create_post = asyncHandler(async (req, res, next) => {
   res.render("Not Implemented: Item Create Post");
 });
 
 //TODO add item_delete_get controller
 exports.item_delete_get = asyncHandler(async (req, res, next) => {
-  res.render("Not Implemented: Item Delete Get");
+  const item = await Item.findById(req.params.id).populate("category").exec();
+  if (item == null) {
+    const err = new Error("Item not found");
+    err.status = 404;
+    return next(err);
+  }
+  res.render("item_delete", {
+    title: "Delete Item",
+    item: item,
+  });
 });
 
 //TODO add item_delete_post controller

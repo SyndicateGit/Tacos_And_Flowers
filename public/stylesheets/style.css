@@ -87,6 +87,13 @@ a:hover {
   text-decoration: underline;
 }
 
+form button{
+  margin-top: 20px;
+  width: 50vw;
+  align-self: center;
+}
+
+
 form a{
   margin-top: 20px;
   width: 50vw;
@@ -99,6 +106,14 @@ form a{
   font-weight: bold;
 }
 
+.margin-top-reduce{
+  margin-top: -5px;
+}
+
+form button.small, form a.small{
+  width: fit-content;
+  margin-top: -5px;
+}
 
 /**********************************
 * * NAVBAR * *
@@ -229,11 +244,6 @@ form{
   gap: 6px;
 }
 
-form button{
-  margin-top: 20px;
-  width: 50vw;
-  align-self: center;
-}
 
 /**********************************
 * * Item Detail Page * *
@@ -242,7 +252,7 @@ form button{
 .item-detail-container{
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: start;
   margin-top: 30px;
   gap: 20px;
 }
