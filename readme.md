@@ -9,19 +9,19 @@ Link: (to be added after hosting)
 ## Features
 -All CRUD operations for uploading categories and items
 -Ability to upload images
--Safeguard for uploading/deleting objects
+-Checkout page ;) 
 -Tacos and Flowers!
 
 ## Technologies Used
 -Backend: Node.js, Express.js
 -View Engine: Ejs
 -Database: MongoDB
--Image Hosting: (considering Cloudinary)
+-Image Hosting: Cloudinary
 
 ## Hosting Platforms
 -fly.io: (considering for deploying and hosting the application)
 -MongoDB Atlas: for cloud-based MongoDB hosting
--Cloudinary: (considering for hosting and managing images)
+-Cloudinary: for image upload and image url hosting.
 
 ## Installation Guide
 Type in terminal the following:

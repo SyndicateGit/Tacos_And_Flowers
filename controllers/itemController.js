@@ -9,7 +9,6 @@ const cloudinary = require("../configs/cloudinaryConfig");
 
 exports.item_list = asyncHandler(async (req, res, next) => {
   const allItems = await Item.find().populate("category").sort({name:1}).exec();
-  console.log(allItems);
   res.render("item_list", { title: "Item List" , items: allItems}, );
 });
 
@@ -57,15 +56,11 @@ exports.item_create_post = [
   asyncHandler(async (req, res, next) => {
     try{
       const errors = validationResult(req);
-    console.log(errors);
 
     let formattedPrice = parseFloat(req.body.price).toFixed(2);
 
-    console.log(formattedPrice);
-
     let item;
     
-    console.log(req.body);
     // Image file is uploaded
     if(req.file){
       const result = await cloudinary.uploader.upload(req.file.path);
@@ -78,7 +73,6 @@ exports.item_create_post = [
         price: formattedPrice,
         description: req.body.description,
       });
-      console.log(item);
     } 
 
     // Image file is not uploaded
@@ -89,7 +83,6 @@ exports.item_create_post = [
         price: formattedPrice,
         description: req.body.description,
       });
-      console.log(item);
     }
 
     // If there are errors, render the form again, passing the previously entered values and errors
@@ -131,6 +124,10 @@ exports.item_delete_post = asyncHandler(async (req, res, next) => {
   if (currItem && currItem.cloudinary_id) {
     await cloudinary.uploader.destroy(currItem.cloudinary_id);
   }
-  
+
   res.redirect("/inventory/items");
 });
+
+//TODO: Handle item update on GET.
+
+//TODO: Handle item update on POST.
