@@ -2,8 +2,6 @@
 
 Welcome to my inventory app! This project is created to showcase dynamic site operations for creating, updating, reading, and deleting objects in a database. I built this project for valentines day for my girlfriend who love tacos 🌮 and for me who loves flowers 🌻. 
 
-⚠️To prevent desctructive actions from users, there will be a password for updating and deleting objects. 
-
 Link: [(https://tacos-and-flowers.fly.dev/)]
 
 ![tacos-and-flowers](https://github.com/SyndicateGit/Tacos_And_Flowers/assets/119547462/f73ed5dd-1ce2-4434-80f6-be2aba3f5d1c)
