@@ -52,13 +52,23 @@ Type in terminal the following:
 
 ## What I've learned through this project
 -EJS (I used pugs before)
+
 -Hiding API keys in .env file 
+
 -MongoDB
+
 -Mongoose Schemas / models
+
 -Express routers and controller MCV architecture
+
 -Cloudinary
+
 -From enctype="multipart/form-data" for file uploads
+
 -Mutler is needed as middleware to parse forms that have file uploads
+
 -Remember to put /:id app.use() after /create
+
+-Host a website on fly.io
 
 ```bash
